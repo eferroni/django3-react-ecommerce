@@ -136,7 +136,6 @@ export const productReviewCreateReducer = (state = {}, action) => {
       return {loading: false, error: action.payload }
 
     case PRODUCT_CREATE_REVIEW_RESET:
-      console.log('reset')
       return {}
 
     default:

@@ -8,7 +8,7 @@ import Paginate from '../components/Paginate'
 import { listProducts, deleteProduct, createProduct } from '../actions/productActions'
 import { PRODUCT_CREATE_RESET } from '../constants/productConstant'
 
-function ProducerListScreen({ history, match }){
+function ProductListScreen({ history, match }){
 
   const dispatch = useDispatch()
 
@@ -53,14 +53,14 @@ function ProducerListScreen({ history, match }){
   return(
     <div>
       <Row className='align-items-center'>
-      <Col>
-        <h1>Products</h1>
-      </Col>
-      <Col className='text-right'>
-        <Button className='my-3' onClick={createProductHandler}>
-          <i className='fas fa-plus'></i> Create Product
-        </Button>
-      </Col>
+        <Col>
+          <h1>Products</h1>
+        </Col>
+        <Col className='text-right'>
+          <Button className='my-3' onClick={createProductHandler}>
+            <i className='fas fa-plus'></i> Create Product
+          </Button>
+        </Col>
       </Row>
 
       {loadingDelete && <Loader/>}
@@ -87,7 +87,7 @@ function ProducerListScreen({ history, match }){
                 </tr>
               </thead>
               <tbody>
-                {products.map(product => (
+                {products && products.map(product => (
                   <tr key={product._id}>
                     <td>{product._id}</td>
                     <td>{product.name}</td>
@@ -117,4 +117,4 @@ function ProducerListScreen({ history, match }){
   )
 }
 
-export default ProducerListScreen
+export default ProductListScreen
